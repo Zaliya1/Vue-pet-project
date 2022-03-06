@@ -1,8 +1,8 @@
-console.log(1);
 const getData = (url1, url2) => {
     fetch(url1)
     .then(response => response.json())
-    .then(data => sendData(data, url2));
+    .then(data => sendData(data, url2))
+    .catch(error => console.log(error));
 };
 const sendData = (obj, url) => {
     fetch(url, {
@@ -13,6 +13,7 @@ const sendData = (obj, url) => {
         },
       })
         .then((response) => response.json())
-        .then((json) => console.log(json));
+        .then((json) => console.log(json))
+        .catch(error => console.log(error));
 };
 getData('db.json', 'https://jsonplaceholder.typicode.com/posts');
