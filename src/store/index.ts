@@ -2,7 +2,7 @@ import Vue from "vue";
 import Vuex, {StoreOptions} from "vuex"
 Vue.use(Vuex);
 
-import {PokemonType} from "types";
+type PokemonType = []
 
 export interface RootState {
     pokemons: PokemonType[] | [];
