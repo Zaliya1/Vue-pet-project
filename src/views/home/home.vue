@@ -1,7 +1,7 @@
 <template>
-  <div class="home">home
-    <ul class="film-list" v-for="film in films" :key="film.kinopoiskId">
-      <FilmItem :film="film" @click="openFilm(film.kinopoiskId)"/>
+  <div class="home" v-loading="isLoading">home
+    <ul class="film-list">
+      <FilmItem v-for="film in films" :key="film.kinopoiskId" :film="film" @click="openFilm(film.kinopoiskId)"/>
     </ul>
   </div>
 </template>

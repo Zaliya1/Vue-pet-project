@@ -6,7 +6,7 @@ export const filmToIFilmAdapter = (films: Film[]): IFilm[] => {
             countries: film.countries.map(i => i.country),
             genres: film.genres.map(i => i.genre),
             kinopoiskId: film.kinopoiskId,
-            nameRu: film.nameRu,
+            nameRu: film.nameRu || film.nameOriginal || "Не найдено",
             posterUrl: film.posterUrl,
             posterUrlPreview: film.posterUrlPreview,
             ratingKinopoisk: film.ratingKinopoisk,

@@ -1,6 +1,8 @@
 <template>
-  <div class="film">film
+  <div class="film" v-loading="isLoading">
+<!--    <Loader v-if="isLoading"/>-->
     <el-image
+        v-loading="isLoading"
         style="width: 100px; height: 100px"
         :src="film.posterUrl"
         :preview-src-list="[film.coverUrl]">
