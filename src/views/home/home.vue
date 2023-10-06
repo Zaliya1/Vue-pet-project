@@ -1,8 +1,26 @@
 <template>
-  <div class="home" v-loading="isLoading">home
+  <div class="home" v-loading="isLoading">
+    <FilmsCarousel :films="topFilms" />
+    <el-pagination
+        background
+        layout="prev, pager, next"
+        @current-change="changePage"
+        :total="1000">
+    </el-pagination>
+    <Select
+        :value="filmsParams.order"
+        :options="sort"
+        label="Сортировать по"
+        @change="changeOrder"
+    />
     <ul class="film-list">
-      <FilmItem v-for="film in films" :key="film.kinopoiskId" :film="film" @click="openFilm(film.kinopoiskId)"/>
+      <FilmItem
+          v-for="film in films"
+          :key="film.kinopoiskId"
+          :film="film"
+          @click="openFilm(film.kinopoiskId)"/>
     </ul>
+
   </div>
 </template>
 

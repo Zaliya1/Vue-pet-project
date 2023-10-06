@@ -1,0 +1,7 @@
+.film__button {
+    display: flex;
+    text-decoration: none;
+}
+.film__link {
+    display: flex;
+}

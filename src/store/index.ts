@@ -1,25 +1,29 @@
 import Vue from "vue";
-import Vuex, {StoreOptions} from "vuex"
+import Vuex, { StoreOptions } from "vuex"
+import { ITopFilm } from "@/types";
 Vue.use(Vuex);
 
-type PokemonType = []
-
 export interface RootState {
-    pokemons: PokemonType[] | [];
+    topFilms: ITopFilm[];
 }
 
 const store: StoreOptions<RootState> = {
     state: {
-        pokemons: [],
+        topFilms: [],
+    },
+    getters: {
+        topFilms: state => {
+            return state.topFilms;
+        }
     },
     actions: {
-        actionPokemons(context: any, pokemons: PokemonType[]) {
-            context.commit('mutatePokemons', pokemons)
+        actionFilms(context: any, films: ITopFilm[]) {
+            context.commit('mutateFilms', films)
         }
     },
     mutations: {
-        mutatePokemons(state, pokemons: PokemonType[]) {
-            state.pokemons = pokemons;
+        mutateFilms(state, films: ITopFilm[]) {
+            state.topFilms = films;
         },
     }
 }

@@ -1,7 +1,13 @@
+export type OrderType = "RATING" | "NUM_VOTE" | "YEAR"
+
 export type QueryParamsType = {
-    platform?: 'pc' | 'browser' | 'all';
-    category?: string;
-    'sort-by'?: 'release-date' | 'popularity' | 'alphabetical' | 'relevance';
+    countries?: string;
+    genres?: string;
+    order?: OrderType;
+    type?: "FILM" | "TV_SHOW" | "TV_SERIES" | "MINI_SERIES" | "ALL";
+    ratingFrom?: number;
+    ratingTo?: number;
+    page?: number;
 }
 type Country = {
     country: string
@@ -111,4 +117,33 @@ export type IFilmInfo = {
     type: string;
     webUrl: string;
     year: number;
+}
+
+export type TopFilm = {
+    countries: Country[];
+    filmId: number;
+    filmLength: string;
+    genres: Genre[];
+    isAfisha: number;
+    isRatingUp: boolean | null;
+    nameEn: string;
+    nameRu: string
+    posterUrl: string
+    posterUrlPreview: string
+    rating: string;
+    ratingChange: string | null;
+    ratingVoteCount: number;
+    year: string;
+}
+export type ITopFilm = {
+    countries: string[];
+    filmId: number;
+    filmLength: string;
+    genres: string[];
+    nameRu: string
+    posterUrl: string
+    posterUrlPreview: string
+    rating: string;
+    ratingVoteCount: number;
+    year: string;
 }

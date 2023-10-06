@@ -15,7 +15,7 @@ const routes = [
     path: '/film/:id',
     name: 'film',
     component: Film
-  }
+  },
 ]
 
 const router = new VueRouter({
