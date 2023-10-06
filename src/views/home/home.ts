@@ -1,7 +1,7 @@
 import {Component, Vue, Watch} from "vue-property-decorator";
 import FilmItem from "@/components/film-item/film-item.vue";
 import FilmsCarousel from "@/components/films-carousel/films-carousel.vue"
-import {IFilm, ITopFilm, OrderType, QueryParamsType} from "@/types";
+import {FilmType, IFilm, ITopFilm, OrderType, QueryParamsType} from "@/types";
 import Select from "@/components/select/select.vue";
 import {SelectOption} from "@/components/select/select";
 
@@ -15,15 +15,25 @@ import {SelectOption} from "@/components/select/select";
 export default class Home extends Vue {
     films: IFilm[] = [];
     topFilms: ITopFilm[] = [];
+    filmsParams: QueryParamsType = {
+        order: "RATING",
+        page: 1,
+        type: "ALL"
+    };
+
     sort: SelectOption[] = [
         {value: "RATING", label: "рейтингу"},
         {value: "NUM_VOTE", label: "количеству голосов"},
         {value: "YEAR", label: "году"},
-    ]
-    filmsParams: QueryParamsType = {
-        order: "RATING",
-        page: 1,
-    };
+    ];
+    filter: SelectOption[] = [
+        {value: "ALL", label: "все"},
+        {value: "FILM", label: "фильмы"},
+        {value: "TV_SHOW", label: "тв шоу"},
+        {value: "TV_SERIES", label: "тв сериалы"},
+        {value: "MINI_SERIES", label: "мини сериалы"},
+    ];
+
     error: string;
     isLoading: boolean = false;
 
@@ -66,6 +76,10 @@ export default class Home extends Vue {
 
     changeOrder(str: OrderType) {
         this.filmsParams.order = str
+    }
+
+    changeType(str: FilmType) {
+        this.filmsParams.type = str
     }
 
     @Watch('filmsParams', { immediate: true, deep: true })

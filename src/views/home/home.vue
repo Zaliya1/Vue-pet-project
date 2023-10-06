@@ -13,6 +13,12 @@
         label="Сортировать по"
         @change="changeOrder"
     />
+    <Select
+        :value="filmsParams.type"
+        :options="filter"
+        label="Тип"
+        @change="changeType"
+    />
     <ul class="film-list">
       <FilmItem
           v-for="film in films"

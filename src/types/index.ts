@@ -1,10 +1,11 @@
-export type OrderType = "RATING" | "NUM_VOTE" | "YEAR"
+export type OrderType = "RATING" | "NUM_VOTE" | "YEAR";
+export type FilmType = "FILM" | "TV_SHOW" | "TV_SERIES" | "MINI_SERIES" | "ALL";
 
 export type QueryParamsType = {
     countries?: string;
     genres?: string;
     order?: OrderType;
-    type?: "FILM" | "TV_SHOW" | "TV_SERIES" | "MINI_SERIES" | "ALL";
+    type?: FilmType;
     ratingFrom?: number;
     ratingTo?: number;
     page?: number;
