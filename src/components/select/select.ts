@@ -8,6 +8,7 @@ export type SelectOption = {
 @Component
 export default class Select extends Vue {
     @Prop ({required: true, type: Array}) options: SelectOption[];
+    @Prop ({required: false, type: String}) label?: string;
     @PropSync ("value") selectValue: string;
 
     changeValue(newValue: SelectOption["value"]) {

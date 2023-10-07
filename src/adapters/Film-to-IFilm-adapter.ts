@@ -11,7 +11,7 @@ export const filmToIFilmAdapter = (films: Film[]): IFilm[] => {
             posterUrlPreview: film.posterUrlPreview,
             ratingKinopoisk: film.ratingKinopoisk,
             type: film.type,
-            year: film.year,
+            year: film.year + ' год',
         };
     })
 

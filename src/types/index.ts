@@ -41,7 +41,7 @@ export type IFilm = {
     posterUrlPreview: string;
     ratingKinopoisk: number;
     type: string;
-    year: number;
+    year: string;
 }
 
 export type FilmInfo = {

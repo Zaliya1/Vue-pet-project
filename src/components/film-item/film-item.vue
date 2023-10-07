@@ -1,13 +1,11 @@
 <template>
   <li class="film-item" @click="$emit('click')">
     <el-card class="film-item__card" shadow="hover">
-
       <img :src="film.posterUrlPreview" class="film-item__image">
-      <div style="padding: 14px;">
+      <div style="padding: 14px">
         <h3>{{ film.nameRu }}</h3>
         <div class="bottom clearfix">
-          <time class="time">{{ film.nameRu }}</time>
-
+          {{film.year}}
         </div>
       </div>
     </el-card>

@@ -34,7 +34,7 @@ export default class Home extends Vue {
         {value: "MINI_SERIES", label: "мини сериалы"},
     ];
 
-    error: string;
+    error: string = "";
     isLoading: boolean = false;
 
     mounted() {
@@ -49,7 +49,8 @@ export default class Home extends Vue {
             this.isLoading = false;
         }).catch((e) => {
             this.isLoading = false;
-            this.error = e
+            this.error = e;
+            this.films = [];
         })
     }
 
@@ -59,9 +60,7 @@ export default class Home extends Vue {
             this.topFilms = res;
             this.$store.dispatch('actionFilms', this.topFilms);
         }).catch((e) => {
-            this.isLoading = false;
-            console.log(e)
-            // TODO алерт ошибка загрузки списка топ фильмов
+            this.error = e;
         })
     }
 
